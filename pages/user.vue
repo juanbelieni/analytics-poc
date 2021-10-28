@@ -2,8 +2,17 @@
 export default {
   computed: {
     userId() {
-      return localStorage.getItem('userId');
+      if (process.browser) return localStorage.getItem('userId');
+      return null;
     },
+  },
+
+  mounted() {
+    this.$analytics.page({
+      title: 'User',
+      url: window.location.href,
+      path: '/user',
+    });
   },
 };
 </script>

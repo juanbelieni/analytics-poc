@@ -2,14 +2,18 @@
 export default {
   computed: {
     userId() {
-      return localStorage.getItem('userId');
+      if (process.browser) return localStorage.getItem('userId');
+      return null;
     },
   },
 
   mounted() {
     this.generateUserId();
-    this.$analytics.page();
     this.$analytics.identify(this.userId);
+
+    this.$analytics.page(({ payload }) => {
+      console.log(payload);
+    });
   },
 
   methods: {
