@@ -10,10 +10,6 @@ export default {
   mounted() {
     this.generateUserId();
     this.$analytics.identify(this.userId);
-
-    this.$analytics.page(({ payload }) => {
-      console.log(payload);
-    });
   },
 
   methods: {

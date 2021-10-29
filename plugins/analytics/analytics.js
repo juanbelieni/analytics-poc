@@ -4,6 +4,7 @@ import { googleTagManagerPlugin } from './google-tag-manager';
 
 const analytics = Analytics({
   app: 'website',
+  debug: true,
   plugins: [googleAnalyticsPlugin, googleTagManagerPlugin],
 });
 
