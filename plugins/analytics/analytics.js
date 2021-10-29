@@ -8,7 +8,7 @@ const analytics = Analytics({
 });
 
 analytics.on('page', ({ payload }) => {
-  console.log(`page listener ${payload.type}`)
+  console.log('page', payload);
 })
 
 export default (_context, inject) => {
